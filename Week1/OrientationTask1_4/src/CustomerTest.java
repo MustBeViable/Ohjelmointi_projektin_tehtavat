@@ -9,7 +9,6 @@ public class CustomerTest {
         int testCustomerCount = 100;
         for (int i=0; i<testCustomerCount; i++) {
             Customer customer = new Customer();
-            customer.setId(i+1);
             customer.setStartTime(System.nanoTime());
             customerList.addFirst(customer);
         }
