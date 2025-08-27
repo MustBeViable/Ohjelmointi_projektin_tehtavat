@@ -4,15 +4,12 @@ public class CustomerTest {
 
     public static void main(String[] args) {
         ArrayList<Customer> customerList = new ArrayList<>();
-        int testCustomerCount = 1000000;
+        int testCustomerCount = 100;
         for (int i=0; i<testCustomerCount; i++) {
             customerList.add(new Customer());
         }
-        int index = 1;
         for (Customer customer : customerList) {
-            customer.setId(index);
             customer.setStartTime(System.currentTimeMillis());
-            index++;
         }
         for (Customer customer : customerList) {
             customer.setEndTime(System.currentTimeMillis());

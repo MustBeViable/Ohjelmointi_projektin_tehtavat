@@ -1,8 +1,14 @@
 public class Customer {
+    private static int nextId = 1;
     private int id;
     private long startTime;
     private long endTime;
 
+
+    public Customer () {
+        this.id = nextId;
+        nextId++;
+    }
 
     public int getId() {
         return this.id;
