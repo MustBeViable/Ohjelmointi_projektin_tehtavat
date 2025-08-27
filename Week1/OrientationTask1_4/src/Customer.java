@@ -13,9 +13,9 @@ public class Customer {
         return this.id;
     }
 
-    public void setId(int id) {
+    /*public void setId(int id) {
         this.id = id;
-    }
+    }*/
 
     public long getStartTime() {
         return this.startTime;
