@@ -49,6 +49,8 @@ public class CustomerTest {
             Customer customer = customerList.removeLast();
             customer.setEndTime(System.nanoTime());
             dequeuedCustomers.add(customer);
+            System.out.printf("%d. Customer came at %d and left %d. Waiting time was %d\n",
+                    customer.getId(), customer.getStartTime(), customer.getEndTime(), customer.spentTime());
         } else {
             System.out.println("No customers in queue");
         }
