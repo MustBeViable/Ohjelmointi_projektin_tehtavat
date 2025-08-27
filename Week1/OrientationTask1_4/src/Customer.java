@@ -1,6 +1,6 @@
 public class Customer {
     private static int nextId = 1;
-    private int id;
+    final private int id;
     private long startTime;
     private long endTime;
 
@@ -13,9 +13,6 @@ public class Customer {
         return this.id;
     }
 
-    /*public void setId(int id) {
-        this.id = id;
-    }*/
 
     public long getStartTime() {
         return this.startTime;
