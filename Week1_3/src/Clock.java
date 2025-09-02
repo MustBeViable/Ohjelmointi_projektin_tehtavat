@@ -18,7 +18,7 @@ public class Clock {
     }
 
     //Increments time of
-    public void setTimeMs(long newTime) {
+    public void advanceTimeMs(long newTime) {
         timeMs += newTime;
     }
 }
