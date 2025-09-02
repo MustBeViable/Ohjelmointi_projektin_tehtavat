@@ -1,33 +1,37 @@
 public class AgeDistributor {
     public static void main(String[] args) {
-        final int REITERATIONS = 10000;
+        final long REITERATIONS = 2000000000L;
         final int MAX_AGE = 35;
         final int MIN_AGE = 20;
+        final int nanoConvertor = 1000000000;
 
         int agedistribution[][] = {
-                {16, MIN_AGE},  		// 16 %		// This line matches to random numbers 1..16,  gives age 20
-                {34, 21},  		// 18 %    	// This line matches to random numbers 17..34, gives age 21
-                {52, 22},		// 18 %    	// ...
-                {68, 23},    	// 16 %
-                {82, 24},  		// 14 %
-                {89, 25}, 		// 7 %
-                {94, 26},  		// 5 %
-                {96, 28},		// 2 %
-                {98, 30},  		// 2 %
-                {100,MAX_AGE}, 	// 2 %	  	// This line matches to random numbers 99 ja 100
+                {16, MIN_AGE},
+                {34, 21},
+                {52, 22},
+                {68, 23},
+                {82, 24},
+                {89, 25},
+                {94, 26},
+                {96, 28},
+                {98, 30},
+                {100,MAX_AGE},
         };
 
         int generatedAges[] = new int[MAX_AGE+1];
 
-        // Generate ages according to the distribution:
-        for (int i = 1; i <= REITERATIONS; i++){
-            int x = (int)(Math.random()*100)+1; 	// generate a random number 1..100 -> we get the row which gives the age
+        long startTime = System.nanoTime();
+
+        for (long i = 1; i <= REITERATIONS; i++){
+            int x = (int)(Math.random()*100)+1;
             int j = 0;
-            while (x > agedistribution[j][0]) j++;  // search for the correct row to get the matching age
-            generatedAges[agedistribution[j][1]]++; // age founded gives an index to the generated ages count table: increment it (by one)
+            while (x > agedistribution[j][0]) j++;
+            generatedAges[agedistribution[j][1]]++;
         }
 
-        // Output the result of the generation:
+        long endTime = System.nanoTime();
+
+
         System.out.println("Age  count     %-share");
         for (int age = 0; age <= MAX_AGE; age++) {
             if (generatedAges[age] != 0) {
@@ -35,5 +39,6 @@ public class AgeDistributor {
                 System.out.printf(str, age, generatedAges[age], ((double)generatedAges[age])/REITERATIONS*100 );
             }
         }
+        System.out.println("Operation lasted: " + ((endTime - startTime)/nanoConvertor) + " seconds");
     }
 }
