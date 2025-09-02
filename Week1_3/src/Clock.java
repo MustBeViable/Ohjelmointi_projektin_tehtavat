@@ -1,5 +1,3 @@
-import java.util.Date;
-
 public class Clock {
     private static Clock clock;
     private long timeMs;
@@ -14,6 +12,7 @@ public class Clock {
         return clock;
     }
 
+    //varmaa joku metodi joka antaa jonkun eventin timerin
     public Long getTimeMs() {
         return timeMs;
     }
