@@ -5,5 +5,7 @@ public class ClockTester {
 
         System.out.println("Clock time is: " + clock.getTimeMs());
 
+        //uncomment to test the instance creation outside the class
+        //Clock clock1 = new Clock();
     }
 }

@@ -1,6 +1,6 @@
 public class Clock {
     private static Clock clock;
-    private long timeMs;
+    private long timeMs = 0;
 
     private Clock() {}
 
@@ -17,7 +17,8 @@ public class Clock {
         return timeMs;
     }
 
+    //Increments time of
     public void setTimeMs(long newTime) {
-        timeMs = newTime;
+        timeMs += newTime;
     }
 }
