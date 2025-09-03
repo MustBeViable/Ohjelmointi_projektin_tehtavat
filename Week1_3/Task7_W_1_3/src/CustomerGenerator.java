@@ -10,7 +10,6 @@ public class CustomerGenerator {
     public void generateCustomers () {
         for (int i = 0; i < this.customerCount; i++) {
             Customer customer = new Customer();
-            Clock.getInstance().advanceTimeMs(500);
             servicePoint.addToQueue(customer);
         }
     }

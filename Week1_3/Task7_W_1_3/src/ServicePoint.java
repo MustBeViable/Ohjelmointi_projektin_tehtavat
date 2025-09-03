@@ -13,7 +13,6 @@ public class ServicePoint {
         System.out.println("Adding customer with id " + a.getId() + " to the queue");
         customerList.addFirst(a);
         a.setStartTime();
-        System.out.println("Current time is: " + Clock.getInstance().getTimeMs());
     }
 
     public Customer removeFromQueue() {

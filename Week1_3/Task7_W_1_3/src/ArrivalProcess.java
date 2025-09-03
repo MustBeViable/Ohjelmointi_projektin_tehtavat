@@ -15,8 +15,11 @@ public class ArrivalProcess {
     }
 
     public Event scheduleNext(PriorityQueue<Event> eventList) {
-        long delta = (long) (neg.sample() + (1000 * (Math.random() + 1)));
-        evt = new Event("Arrival"+index, delta, this.eventType);
+        long delta = (long) Math.max(200, (neg.sample() + (1000 * (Math.random() + 1))));
+        System.out.println("Delta: " + delta);
+        Clock.getInstance().advanceTimeMs(delta);
+        long arrTime = Clock.getInstance().getTimeMs();
+        evt = new Event("Arrival"+index, arrTime, this.eventType);
         eventList.add(evt);
         index++;
         return evt;
