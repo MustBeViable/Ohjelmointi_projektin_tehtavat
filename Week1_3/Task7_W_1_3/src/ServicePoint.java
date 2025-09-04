@@ -12,26 +12,24 @@ public class ServicePoint {
     public void addToQueue(Customer a) {
         System.out.println("Adding customer with id " + a.getId() + " to the queue");
         customerList.addFirst(a);
-        a.setStartTime();
     }
 
     public Customer removeFromQueue() {
         Customer customer = customerList.removeLast();
+        Clock.getInstance().advanceTimeMs(customer.getStartTime());
         customer.setEndTime(Clock.getInstance().getTimeMs());
         return customer;
     }
 
     public void serve() {
         while (!customerList.isEmpty()) {
-            Clock.getInstance().advanceTimeMs(500);
-            long serviceTime = Clock.getInstance().getTimeMs();
+            long serviceTime = customerList.getLast().getStartTime();
             allServiceTimes.add(serviceTime);
             if (serviceTime > this.maxServiceTIme || serviceTime < this.minServiceTime) {
                 this.maxServiceTIme = Math.max(this.maxServiceTIme, serviceTime);
                 this.minServiceTime = Math.min(this.minServiceTime, serviceTime);
             }
             Customer customer = removeFromQueue();
-
 
             this.customerCount++;
             System.out.printf("%d. Customer  service time was %s s\n",

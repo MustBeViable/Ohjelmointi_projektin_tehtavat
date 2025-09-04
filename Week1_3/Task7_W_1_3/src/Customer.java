@@ -4,17 +4,14 @@ public class Customer {
     private long startTime;
     private long endTime;
 
-    public Customer () {
+    public Customer (Event e) {
+        this.startTime = e.getEventTime();
         this.id = nextId;
         nextId++;
     }
 
     public int getId() {
         return this.id;
-    }
-
-    public void setStartTime() {
-        this.startTime = Clock.getInstance().getTimeMs();
     }
 
     public long getStartTime() {

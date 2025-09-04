@@ -1,16 +1,13 @@
 public class CustomerGenerator {
     private final ServicePoint servicePoint;
-    private final int customerCount;
 
-    public CustomerGenerator (ServicePoint servicePoint ,int customerCount) {
-        this.customerCount = customerCount;
+    public CustomerGenerator (ServicePoint servicePoint) {
         this.servicePoint = servicePoint;
     }
 
-    public void generateCustomers () {
-        for (int i = 0; i < this.customerCount; i++) {
-            Customer customer = new Customer();
+    public void generateCustomers (Event e) {
+            Customer customer = new Customer(e);
             servicePoint.addToQueue(customer);
-        }
+
     }
 }
